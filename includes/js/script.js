@@ -86,7 +86,7 @@ class MyArray {
 
   shift() {
     const buffer = this;
-    if (!this.length) {
+    if (this.length === 0) {
       throw new RangeError("Array is empty. .shift() can`t be processed");
     }
 
@@ -173,7 +173,13 @@ function plusNumbers(value) {
 
 function uniqueValueInArray(arr) {
   const newArr = [];
-  arr.forEach((array) => newArr.push(...array.filter((value1)=>array.filter((value2)=>value1===value2).length===1)));
+  arr.forEach((array) =>
+    newArr.push(
+      ...array.filter(
+        (value1) => array.filter((value2) => value1 === value2).length === 1
+      )
+    )
+  );
 
   return newArr;
 }
